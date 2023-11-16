@@ -324,10 +324,6 @@
 .design-work .work-item:nth-child(5) {
   grid-row: span 40;
 }
-.design-work .work-item .title {
-  font-size: 2vw;
-  margin-bottom: 10px;
-}
 .design-work .work-item .text-box {
   width: 80%;
   padding: 2vw 2vw;
@@ -335,7 +331,10 @@
   bottom: 0;
   left: 0;
   z-index: 20;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+.design-work .work-item .title {
+  font-size: 2vw;
+  margin-bottom: 10px;
 }
 .design-work .work-item .btn-box {
   position: absolute;
@@ -623,18 +622,41 @@
     display: none;
     margin-top: 20px;
   }
-  /* .work .txt-box .tag > span {
-    display: inline-block;
-    padding: 5px 8px;
-    border-radius: 30px;
-    font-size: 12px;
-  } */
-  /* .tag span + span {
-    margin-left: 5px;
-  } */
   .web-work .work .btn-box {
     align-items: flex-start;
     gap: 15px;
   }
-
+  /* design */
+  .design-work::before {
+    display: none;
+  }
+  .design-work .inner > .title {
+    margin-bottom: 30px;
+    font-size: 5vw;
+    font-weight: 600;
+  }
+  .design-work .work {
+    display: flex;
+    flex-direction: column;
+    gap: 5vw;
+  }
+  .design-work .work-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vw;
+  }
+  .design-work .work-item .text-box {
+    width: 100%;
+    padding: 0 3vw;
+    position: absolute;
+    bottom: auto;
+    left: auto;
+    word-break: break-all;
+    text-align: center;
+  }
+  .design-work .work-item .title {
+    font-size: 6vw;
+    margin-bottom: 10px;
+  }
 }
