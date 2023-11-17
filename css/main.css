@@ -333,16 +333,23 @@
   z-index: 20;
   word-break: break-all;
 }
+
 .design-work .work-item .title {
   font-size: 2vw;
   margin-bottom: 10px;
 }
 .design-work .work-item .btn-box {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
   position: absolute;
   top: 2vw;
   right: 2vw;
   z-index: 20;
+  transition: all 0.5s ease-in;
+}
+.design-work .work-item:hover .btn-box {
+  visibility: visible;
+  opacity: 1;
 }
 .design-work .work-item .img-box .img {
   /* display: flex; */
@@ -364,6 +371,11 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.35);
   z-index: 10;
+  transition: all 0.3s;
+}
+.design-work .work-item:hover .img-box::before {
+  background-color: rgba(0, 0, 0, 0.7);
+
 }
 .design-work .work-item .img-box video, img {
   object-fit: cover;
