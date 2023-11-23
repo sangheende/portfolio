@@ -1,4 +1,7 @@
 @charset "UTF-8";
+body {
+  position: relative;
+}
 .inner {
   padding: 120px 90px;
 }
@@ -10,6 +13,11 @@
   width: 100%;
   height: 80px;
   padding: 0 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  /* background-color: #FFF; */
 }
 
 .header .logo {
@@ -33,25 +41,44 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* z-index: 10; */
+  background-color: #FFF;
 }
 .visual .inner {
+  margin: 0;
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 .visual .slogan {
   display: flex;
-  flex-flow: wrap;
+  /* flex-flow: wrap; */
   justify-content: center;
-  font-size: 180px;
+  align-items: center;
+  font-size: 10vw;
   font-style: normal;
   font-weight: 700;
 }
-.visual .iopen > svg {
-  width: 28px;
-  height: 128px;
+.visual .empthy {
+  margin: auto 0;
+}
+.visual .empthy .i {
+  width: 2.3vh;
+  height: 7vw;
   margin: 0 20px;
+  background-color: #111;
+  /* transition: width 1s; */
+  transition: width 0.5s ease-in-out;
+}
+.visual .empthy .i.active {
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
 }
 .visual .inner > p {
   font-size: 28px;
@@ -59,19 +86,34 @@
 }
 /* intro */
 .intro {
+  opacity: 0;
   width: 100%;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(6.56vw, -1.63vh);
   background: #EBCA52 no-repeat center center / cover;
-  /* position: fixed; */
+  transition: width, opacity 0.5s ease-in-out;
+}
+.intro.active {
+  opacity: 1;
+  transform: translate(0, 0);
+  /* transform: translate(6.56vw, -1.63vh); */
 }
 .intro .inner {
-  /* padding: 90px 0 90px 90px; */
-  /* display: flex;
-  justify-content: space-between; */
+  width: 100%;
+  height: 100vh;
+
 }
 .intro .txt {
-  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
   font-size: 4vw;
+  text-align: center;
   font-weight: 300;
   color: #FFF;
 }
@@ -81,12 +123,18 @@
 .intro .img {
   width: 30%;
 }
+
+.content-wrap {
+  position: relative;
+  top: 200vh;
+  z-index: 200;
+}
 /* appeal */
 .appeal {
   width: 100%;
   border-radius: 50px 50px 0 0;
   background-color: #111;
-  /* background-color: #E0DCDC; */
+
   color: #FFF;
 }
 .appeal .inner {
@@ -146,6 +194,11 @@
   height: 40vh;
   width: calc(50% - 1px);
   text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+.program .inner > div:hover {
+  color: indigo;
+  transform: scale(1.1);
 }
 .program .inner .line-vertical {
   display: block;
@@ -178,9 +231,18 @@
 .web-work {
   width: 100%;
   background-color: #111;
+  position: relative;
+  padding-top: 120px;
 }
 .web-work .inner {
-  padding: 120px 120px;
+  padding: 120px 90px;
+}
+.web-work > .title {
+  margin-bottom: 70px;
+  font-size: 3vw;
+  font-weight: 600;
+  text-align: center;
+  color: #dfdfdf;
 }
 .web-work .work {
   display: flex;
@@ -284,6 +346,7 @@
 .btn-box > a:hover {
   right: -20px;
 }
+
 /* design.work */
 .design-work {
   background-color: #111;
@@ -331,7 +394,7 @@
   bottom: 0;
   left: 0;
   z-index: 20;
-  word-break: break-all;
+  word-break: keep-all;
 }
 
 .design-work .work-item .title {
@@ -384,11 +447,42 @@
 }
 .design-work .btn-box > a:hover {
   right: auto;
+
+}
+.modal {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+  /* border-radius: 50px; */
+}
+.modal-inner {
+  width: 80%;
+  border-radius: 50px;
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  padding: 20px;
+  transform: translate(-50%, 0);
+  background-color: #FFF;
+}
+.modal-cont {
+  border-radius: 40px;
+  overflow: hidden;
 }
 
 footer {
   width: 100%;
   background-color: #EBCA52;
+  position: relative;
+  z-index: 500;
+  bottom: -200vh;
 }
 footer p {
   font-weight: 700;
@@ -398,7 +492,9 @@ footer .mail {
   text-decoration: underline;
 }
 footer .link {
+  display: flex;
   font-size: 20px;
+  gap: 20px;
   /* margin-top: 20px; */
 }
 footer .copy {
@@ -421,19 +517,23 @@ footer .copy {
   .header {
     padding: 0 40px;
   }
-  .visual .slogan {
+  /* .visual .slogan {
     font-size: 60px;
     margin-bottom: 10px;
-  }
-  .visual .iopen > svg {
-    width: 10px;
-    height: 43px;
+  } */
+  .visual .empthy > .i {
+    width: 1.4vh;
+    height: 7vw;
     margin: 0 3px 0 5px;
+    /* `translate(6.56vw, -1.63vh)`; */
   }
   .visual .inner > p {
     font-size: 16px;
   }
   /* intro */
+  .intro {
+    transform: translate(7vw, -1vh);
+  }
   .intro .txt {
     /* font-size: 50px; */
     color: #FFF;
@@ -477,7 +577,7 @@ footer .copy {
     flex-flow: column;
   }
   .work .title {
-    font-size: 50px;
+    font-size: 45px;
   }
   .web-work .work .desc-box {
     display: flex;
@@ -488,10 +588,15 @@ footer .copy {
   .web-work .work .txt-box {
     width: 100%;
   }
-
+  .web-work .work .work-item:hover + .work-item {
+    margin-top: -200px;
+  }
   .web-work .work .btn-box {
     align-items: flex-start;
     gap: 15px;
+  }
+  .design-work .work-item .text-box {
+    width: 90%;
   }
   footer .inner {
     padding-top: 70px;
@@ -543,12 +648,14 @@ footer .copy {
     font-style: normal;
     font-weight: 700;
   }
-  .visual .iopen > svg {
+  .visual .empthy > .i {
     width: 6px;
     height: 22px;
     margin: 0 1.5px 0 1.5px;
   }
-
+  .intro {
+    transform: translate(5vw, -0.6vh);
+  }
   /* appeal */
   .appeal .inner {
     padding: 90px 20px;
@@ -627,8 +734,12 @@ footer .copy {
   .program .inner > div p {
     font-size: 12px;
   }
+  .web-work > .title {
+    font-size: 5vw;
+    font-weight: 600;
+  }
   .web-work .inner {
-    padding: 120px 30px;
+    padding: 50px 30px 120px
   }
   .web-work .work {
     display: flex;
@@ -645,7 +756,7 @@ footer .copy {
     padding: 50px 20px;
   }
   .work .title {
-    font-size: 35px;
+    font-size: 6vw;
     margin-bottom: 40px;
   }
   .web-work .work .pagenation {
@@ -729,16 +840,18 @@ footer .copy {
   footer .inner {
     padding-top: 70px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     /* flex-direction: column; */
     justify-content: space-between;
     gap: 30px;
   }
   footer p {
-    font-size: 16px;
+    font-size: 3vw;
   }
   footer .link {
-    font-size: 12px;
+    font-size: 18px;
+    gap: 20px;
     /* margin-top: 20px; */
   }
   footer .copy {
