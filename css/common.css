@@ -36,12 +36,13 @@ footer, header, hgroup, main, menu, nav, section {
   display: none;
 }
 body {
-  word-break: break-all;
+  word-break: keep-all;
   /* -webkit-text-size-adjust : 100%; */
   -webkit-font-smoothing: antialiased;
   font: 16px 'Poppins', 'Pretendard', dotum, sans-serif;
   letter-spacing: -0.5px;
   line-height: 1.2;
+
 }
 blockquote, q {
   quotes: none;

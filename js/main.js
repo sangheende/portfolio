@@ -42,9 +42,12 @@ window.addEventListener("wheel", function (e) {
 
 //design work
 let items = document.querySelectorAll(".design-work .work-item");
-console.log(items[1]);
-let itemTitle = document.querySelectorAll(".text-box  .title");
-let itemDesc = document.querySelectorAll(".text-box  .desc");
+let itemTitle = document.querySelectorAll(".text-box .title");
+let itemDesc = document.querySelectorAll(".text-box .desc");
+let designWork = document.querySelector(".design-work");
+let designTitle = document.querySelector(".design-work .inner > .title ");
+let designInner = document.querySelector(".design-work .inner");
+let designDown = document.querySelector(".design-work .down");
 
 Array.from(items).forEach((item, index) => {
   item.addEventListener("mouseover", function () {
@@ -60,11 +63,17 @@ Array.from(items).forEach((item, index) => {
     itemDesc[index].classList.remove("animate__fadeInUp");
   });
 });
+designWork.addEventListener("click", (e) => {
+  designInner.classList.toggle("on");
+  designDown.classList.toggle("on");
+  // designInner.style.height = `100%`;
+  // designDown.style.transform = `rotate(180deg)`;
+});
 
-//모달  오픈
+
+//모달 오픈
 const body = document.querySelector('body');
 let contentWrap = document.querySelector(".content-wrap");
-let web = document.querySelector(".web-work");
 let myro = document.querySelector(".concept");
 let modal = document.querySelector(".modal");
 myro.addEventListener("click", () => {
@@ -78,4 +87,17 @@ modal.addEventListener("click", () => {
   modal.style.display = `none`;
   body.style.overflow = 'auto';
 
+});
+
+//퍼블리시 워크
+let web = document.querySelector(".web-work");
+let webItems = document.querySelectorAll(".web-work .work-item");
+let webImg = document.querySelectorAll(".web-work .work-item .content .img-box");
+Array.from(webItems).forEach((webItem, index) => {
+  webItem.addEventListener("mouseover", function () {
+    webImg[index].classList.add("on");
+  });
+  webItem.addEventListener("mouseout", function () {
+    webImg[index].classList.remove("on");
+  });
 });
