@@ -14,7 +14,7 @@ window.addEventListener("scroll", function () {
     || window.scrollX
     || document.documentElement.scrollTop
     || document.body.scrollTop;
-  if (top > window.innerHeight * 2) {
+  if (top > window.innerHeight * 1.9) {
     header.style.color = "#fff";
   } else {
     header.style.color = "#111";
@@ -29,13 +29,11 @@ window.addEventListener("wheel", function (e) {
   if (wheel > 0) {
     typeI.classList.remove("active");
     intro.classList.remove("active");
-    // intro.style.transform = `translate(6.56vw, -1.63vh)`;
     intro.opacity = `0`;
   }
   else {
     typeI.classList.add("active");
     intro.classList.add("active");
-    // intro.style.transform = `translate(0, 0)`;
 
   }
 });
@@ -48,8 +46,11 @@ let designWork = document.querySelector(".design-work");
 let designTitle = document.querySelector(".design-work .inner > .title ");
 let designInner = document.querySelector(".design-work .inner");
 let designDown = document.querySelector(".design-work .down");
+let designModal = document.querySelector(".design-work .modal");
+
 
 Array.from(items).forEach((item, index) => {
+  let modalInner = document.querySelectorAll(".design-work .modal .modal-inner");
   item.addEventListener("mouseover", function () {
     itemTitle[index].classList.add("animate__animated");
     itemTitle[index].classList.add("animate__fadeInUp");
@@ -62,12 +63,24 @@ Array.from(items).forEach((item, index) => {
     itemDesc[index].classList.remove("animate__animated");
     itemDesc[index].classList.remove("animate__fadeInUp");
   });
+  item.addEventListener("click", function () {
+    designModal.style.display = `block`;
+    body.style.overflow = 'hidden';
+    modalInner[index].style.display = `block`;
+    // designInner.classList.add("on");
+    // designDown.classList.add("on");
+  });
+  designModal.addEventListener("click", function () {
+    designModal.style.display = `none`;
+    body.style.overflow = 'auto';
+    modalInner[index].style.display = `none`;
+  });
 });
-designWork.addEventListener("click", (e) => {
+
+
+designDown.addEventListener("click", (e) => {
   designInner.classList.toggle("on");
   designDown.classList.toggle("on");
-  // designInner.style.height = `100%`;
-  // designDown.style.transform = `rotate(180deg)`;
 });
 
 
@@ -77,9 +90,6 @@ let contentWrap = document.querySelector(".content-wrap");
 let myro = document.querySelector(".concept");
 let modal = document.querySelector(".modal");
 myro.addEventListener("click", () => {
-  // contentWrap.style.position = `stactic`;
-  // web.style.position = `fixed`;
-  // contentWrap.style.top = `-30%`;
   modal.style.display = `block`;
   body.style.overflow = 'hidden';
 });

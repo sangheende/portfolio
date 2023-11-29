@@ -30,7 +30,32 @@ body {
   gap: 30px;
   font-size: 20px;
 }
-
+.modal {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 5000;
+}
+.modal-inner {
+  width: 70%;
+  border-radius: 50px;
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  padding: 20px;
+  transform: translate(-50%, 0);
+  background-color: #FFF;
+}
+.modal-cont {
+  border-radius: 40px;
+  overflow: hidden;
+}
 /* main */
 .main {
   width: 100%;
@@ -144,12 +169,23 @@ body {
   display: flex;
   align-items: flex-end;
   margin-bottom: 170px;
+  position: relative;
+}
+.appeal .profile .sign {
+  position: absolute;
+  left: 20px;
+  top: -110px;
+  font-size: 55vw;
+  font-family: 'Mrs Saint Delafield', cursive;
+  opacity: 0.2;
+
 }
 .appeal .profile .desc {
   font-size: 2vw;
 }
 .appeal .profile .img {
   margin-left: 80px;
+  z-index: 10;
 }
 .appeal .issue {
   width: 100%;
@@ -502,6 +538,21 @@ body {
 .design-work .btn-box > a:hover {
   right: auto;
 }
+.design-work .modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  /* height: 150vh; */
+  /* top: 300px; */
+}
+.design-work .modal .modal-inner {
+  display: none;
+}
+.design-work .modal .modal-inner video {
+  width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+}
 .design-work .down {
   width: 100%;
   display: flex;
@@ -520,32 +571,7 @@ body {
 .design-work .down.on figure {
   transform: rotate(180deg);
 }
-.modal {
-  display: none;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, 0);
-  width: 100%;
-  height: 100vh;
-  overflow: scroll;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 2000;
-}
-.modal-inner {
-  width: 80%;
-  border-radius: 50px;
-  position: absolute;
-  left: 50%;
-  top: 30px;
-  padding: 20px;
-  transform: translate(-50%, 0);
-  background-color: #FFF;
-}
-.modal-cont {
-  border-radius: 40px;
-  overflow: hidden;
-}
+
 
 footer {
   width: 100%;
@@ -553,6 +579,7 @@ footer {
   position: relative;
   z-index: 500;
   bottom: -200vh;
+  z-index: 100;
 }
 footer .inner {
   display: flex;
@@ -799,6 +826,9 @@ footer .copy {
     /* flex: 1; */
     margin-left: auto;
     margin-bottom: 40px;
+  }
+  .appeal .profile .sign {
+    display: none;
   }
   .appeal .issue {
     display: flex;
