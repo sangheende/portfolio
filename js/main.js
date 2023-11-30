@@ -19,24 +19,33 @@ window.addEventListener("scroll", function () {
   } else {
     header.style.color = "#111";
   };
-});
 
-window.addEventListener("wheel", function (e) {
-  // 변수 i를 인자로 받아 observer 콜링 
-  observer.observe(typeI);
-  // 마우스 휠 방향 감지하여 변수 i 가로세로 변경, classList로 관리할 것
-  let wheel = e.wheelDeltaY;
-  if (wheel > 0) {
+  if (top > 10) {
+    typeI.classList.add("active");
+    intro.classList.add("active");
+  } else {
     typeI.classList.remove("active");
     intro.classList.remove("active");
     intro.opacity = `0`;
   }
-  else {
-    typeI.classList.add("active");
-    intro.classList.add("active");
-
-  }
 });
+
+// window.addEventListener("wheel", function (e) {
+//   // 변수 i를 인자로 받아 observer 콜링 
+//   observer.observe(typeI);
+//   // 마우스 휠 방향 감지하여 변수 i 가로세로 변경, classList로 관리할 것
+//   let wheel = e.wheelDeltaY;
+//   if (wheel > 0) {
+//     typeI.classList.remove("active");
+//     intro.classList.remove("active");
+//     intro.opacity = `0`;
+//   }
+//   else {
+//     typeI.classList.add("active");
+//     intro.classList.add("active");
+
+//   }
+// });
 
 //design work
 let items = document.querySelectorAll(".design-work .work-item");
@@ -67,9 +76,8 @@ Array.from(items).forEach((item, index) => {
     designModal.style.display = `block`;
     body.style.overflow = 'hidden';
     modalInner[index].style.display = `block`;
-    // designInner.classList.add("on");
-    // designDown.classList.add("on");
   });
+
   designModal.addEventListener("click", function () {
     designModal.style.display = `none`;
     body.style.overflow = 'auto';
