@@ -306,6 +306,7 @@ body {
   transition: all 0.5s ease-in-out;
 }
 .web-work .work .work-item .inner {
+  position: relative;
   overflow: hidden;
   height: 530px;
   background-color: #222;
@@ -329,7 +330,7 @@ body {
   display: none;
 }
 .work .title {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 700;
   margin-bottom: 50px;
 }
@@ -408,6 +409,7 @@ body {
   transition: all 0.3s;
 }
 .web-work .work .work-item:hover .inner {
+  top: -100px;
   background-color: #EBCA52;
   color: #333;
   transform: rotateX(0) translateZ(0);
@@ -416,9 +418,9 @@ body {
   color: #EBCA52;
   background-color: #333;
 }
-.web-work .work .work-item:hover {
+/* .web-work .work .work-item:hover {
   top: -100px;
-}
+} */
 .web-work .work .work-item:hover + .work-item {
   margin-top: -150px;
 }
