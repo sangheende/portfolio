@@ -86,10 +86,10 @@ Array.from(items).forEach((item, index) => {
 });
 
 
-designDown.addEventListener("click", (e) => {
-  designInner.classList.toggle("on");
-  designDown.classList.toggle("on");
-});
+// designDown.addEventListener("click", (e) => {
+//   designInner.classList.toggle("on");
+//   designDown.classList.toggle("on");
+// });
 
 
 //모달 오픈
