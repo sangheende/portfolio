@@ -192,6 +192,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 15px;
 }
 .appeal .issue .issue-list .issue-depth2 li + li {
   margin-top: 8px;
@@ -359,7 +360,6 @@ body {
   display: flex;
   justify-content: center;
   gap: 15px;
-
 }
 .web-work .work .work-item .desc-box {
   display: flex;
