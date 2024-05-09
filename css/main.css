@@ -335,6 +335,9 @@ body {
   font-weight: 700;
   margin-bottom: 50px;
 }
+.web-work .title {
+  margin-bottom: 10px;
+}
 .web-work .work .pagenation {
   font-size: 40px;
   position: absolute;
@@ -346,6 +349,9 @@ body {
   /* flex-direction: column;
   justify-content: flex-end;
   gap: 50px; */
+}
+.web-work .work .work-item .contri-box{
+ margin-bottom: 20px;
 }
 .web-work .work .work-item .desc-box {
   display: flex;
