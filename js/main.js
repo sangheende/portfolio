@@ -110,12 +110,16 @@ modal.addEventListener("click", () => {
 //퍼블리시 워크
 let web = document.querySelector(".web-work");
 let webItems = document.querySelectorAll(".web-work .work-item");
-let webImg = document.querySelectorAll(".web-work .work-item .content .img-box");
 Array.from(webItems).forEach((webItem, index) => {
-  webItem.addEventListener("mouseover", function () {
-    webImg[index].classList.add("on");
-  });
-  webItem.addEventListener("mouseout", function () {
-    webImg[index].classList.remove("on");
-  });
+  let webImg = webItem.querySelector(".content .img-box");
+  if(webImg){
+    console.log(webImg)
+
+    webItem.addEventListener("mouseover", function () {
+      webImg.classList.add("on");
+    });
+    webItem.addEventListener("mouseout", function () {
+        webImg.classList.remove("on");
+    });
+  }
 });
