@@ -1,0 +1,43 @@
+@use '../variables' as v;
+
+.themeToggle{
+    position:relative;
+    padding: 12px 24px;
+    background-color: var(--bg-card);
+    border: 0;
+    border-radius:22px;
+    font-family: var(--font-mono);
+    font-size: #{v.$text-base};
+    .feather{
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    &__active{
+        position: absolute;
+        left:6px; top:50%;
+        transform: translateY(-50%);
+        padding: 8px 10px;
+        border-radius:22px;
+        color:var(--fg);
+        background-color: var(--bg);
+
+        transition: all 0.8s var(--ease-out);
+    }
+    &__text{
+        span{
+            color: var(--fg-muted);
+        
+            & + span{
+                margin-left: var(--space-md);
+            }
+        }
+    }
+
+    &.dark{
+        .themeToggle__active{
+            left: 102px; 
+        }
+    }
+}

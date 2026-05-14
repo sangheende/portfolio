@@ -1,9 +1,12 @@
 import TopNav from '../assets/components/TopNav'
-
+import BottomNav from '../assets/components/BottomNav'
+import Hero from '../assets/components/Hero'
+import '../assets/styles/pages/home.css'
 const Home = () => {
     return<>
         <TopNav />
-        <h1>home</h1>
+        <Hero/>
+        <BottomNav />
     </>
 }
 

@@ -3,7 +3,6 @@ import { Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import PageDetail from './pages/PageDetail'
 import ThemeProvider from './assets/hooks/useTheme'
-import ThemeToggle from './assets/components/ThemeToggle'
 import './App.css'
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/project/:id" element={<PageDetail />}/>
       </Routes>
-        <ThemeToggle />
     </ThemeProvider>
   </>
 }
