@@ -1,0 +1,138 @@
+// ─────────────────────────────────────────
+// _variables.scss
+// 포트폴리오 v6 — 전역 변수 정의
+// ─────────────────────────────────────────
+
+
+// ── 폰트 ──────────────────────────────────
+$font-display : 'Playfair Display', Georgia, serif;
+$font-body    : 'Pretendard Variable', sans-serif;
+$font-mono    : 'DM Mono', monospace;
+
+
+// ── 컬러 원시값 (팔레트) ──────────────────
+
+// Backgrounds
+$color-off-white   : #f5f0e8;
+$color-off-white-2 : #ede8df;
+$color-linen       : #e8e3d9;
+$color-linen-deep  : #dfd9ce;
+
+// Dark backgrounds
+$color-charcoal    : #1e1c19;
+$color-charcoal-2  : #252320;
+$color-earth       : #2a2724;
+$color-earth-deep  : #312e2a;
+
+// Text
+$color-ink         : #1e1c19;
+$color-ink-muted   : #6b6459;
+$color-ink-dim     : rgba(30, 28, 25, 0.2);
+
+$color-cream       : #f0ebe2;
+$color-cream-muted : #9a9088;
+$color-cream-dim   : rgba(240, 235, 226, 0.2);
+
+// Accent — Porcelain Blue
+$color-accent      : #88b8ce;
+$color-accent-deep : #4a8aa8;
+$color-accent-light: #a8cedd;   // 다크 모드 딥 포인트
+
+// Accent tints
+$color-accent-bg      : rgba(136, 184, 206, 0.10);
+$color-accent-bg-dark : rgba(136, 184, 206, 0.08);
+$color-accent-border  : rgba(136, 184, 206, 0.30);
+$color-accent-border-dark: rgba(136, 184, 206, 0.25);
+
+// Contact
+$color-contact-dark-bg : #1e1c19;
+$color-contact-dark-fg : #f5f0e8;
+$color-contact-light-bg: #88b8ce;
+$color-contact-light-fg: #1e1c19;
+
+
+// ── 보더 ──────────────────────────────────
+$border-light    : rgba(30, 28, 25, 0.08);
+$border-light-md : rgba(30, 28, 25, 0.15);
+$border-dark     : rgba(240, 235, 226, 0.08);
+$border-dark-md  : rgba(240, 235, 226, 0.15);
+
+
+// ── 그림자 ────────────────────────────────
+$shadow-light : rgba(30, 28, 25, 0.06);
+$shadow-dark  : rgba(0, 0, 0, 0.20);
+
+
+// ── 스페이싱 ──────────────────────────────
+$space-xs  : 0.25rem;   //  4px
+$space-sm  : 0.5rem;    //  8px
+$space-md  : 1rem;      // 16px
+$space-lg  : 1.5rem;    // 24px
+$space-xl  : 2.5rem;    // 40px
+$space-2xl : 4rem;      // 64px
+$space-3xl : 6rem;      // 96px
+$space-4xl : 7rem;      // 112px
+
+
+// ── 타이포그래피 ──────────────────────────
+$text-xs    : 0.58rem;  // ~9px
+$text-sm    : 0.65rem;  // ~10px
+$text-base  : 0.85rem;  // ~14px
+$text-md    : 0.95rem;  // ~15px
+$text-lg    : 1.15rem;  // ~18px
+$text-xl    : 1.6rem;   // ~26px
+$text-2xl   : 2.4rem;   // ~38px
+
+$leading-tight  : 0.92;
+$leading-snug   : 1.15;
+$leading-normal : 1.5;
+$leading-relaxed: 1.8;
+$leading-loose  : 1.9;
+
+$tracking-tight  : -0.02em;
+$tracking-normal :  0.02em;
+$tracking-wide   :  0.08em;
+$tracking-wider  :  0.12em;
+$tracking-widest :  0.25em;
+
+
+// ── 레이아웃 ──────────────────────────────
+$max-width      : 1100px;
+$nav-height     : 60px;
+$section-padding: $space-3xl $space-xl;
+
+
+// ── 전환 ──────────────────────────────────
+$duration-fast   : 0.2s;
+$duration-base   : 0.35s;
+$duration-slow   : 0.5s;
+$duration-slower : 0.7s;
+$duration-slowest: 0.9s;
+
+$ease-default : cubic-bezier(0.4, 0, 0.2, 1);
+$ease-out     : cubic-bezier(0, 0, 0.2, 1);
+$ease-spring  : cubic-bezier(0.34, 1.56, 0.64, 1);
+
+$transition-theme : background $duration-slow $ease-default,
+                    color $duration-slow $ease-default,
+                    border-color $duration-slow $ease-default;
+
+
+// ── 반응형 브레이크포인트 ─────────────────
+$bp-sm : 480px;
+$bp-md : 768px;
+$bp-lg : 1024px;
+$bp-xl : 1280px;
+
+@mixin sm { @media (max-width: #{$bp-sm}) { @content; } }
+@mixin md { @media (max-width: #{$bp-md}) { @content; } }
+@mixin lg { @media (max-width: #{$bp-lg}) { @content; } }
+@mixin xl { @media (max-width: #{$bp-xl}) { @content; } }
+
+
+// ── z-index ───────────────────────────────
+$z-cursor  : 9999;
+$z-nav     : 100;
+$z-overlay : 50;
+$z-above   : 10;
+$z-base    : 1;

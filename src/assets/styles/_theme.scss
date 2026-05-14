@@ -1,0 +1,201 @@
+// ─────────────────────────────────────────
+// _theme.scss
+// 포트폴리오 v6 — 라이트 / 다크 테마 CSS 변수
+// _variables.scss를 먼저 import 후 사용
+// ─────────────────────────────────────────
+
+@use 'variables' as v;
+
+
+// ── :root — 공통 변수 (테마 무관) ─────────
+:root {
+  // 폰트
+  --font-display : #{v.$font-display};
+  --font-body    : #{v.$font-body};
+  --font-mono    : #{v.$font-mono};
+
+  // 스페이싱
+  --space-xs  : #{v.$space-xs};
+  --space-sm  : #{v.$space-sm};
+  --space-md  : #{v.$space-md};
+  --space-lg  : #{v.$space-lg};
+  --space-xl  : #{v.$space-xl};
+  --space-2xl : #{v.$space-2xl};
+  --space-3xl : #{v.$space-3xl};
+  --space-4xl : #{v.$space-4xl};
+
+  // 전환
+  --ease        : #{v.$ease-default};
+  --ease-out    : #{v.$ease-out};
+  --ease-spring : #{v.$ease-spring};
+
+  --duration-fast    : #{v.$duration-fast};
+  --duration-base    : #{v.$duration-base};
+  --duration-slow    : #{v.$duration-slow};
+  --duration-slower  : #{v.$duration-slower};
+  --duration-slowest : #{v.$duration-slowest};
+
+  --transition-theme : #{v.$transition-theme};
+
+  // 레이아웃
+  --max-width  : #{v.$max-width};
+  --nav-height : #{v.$nav-height};
+
+  // z-index
+  --z-cursor  : #{v.$z-cursor};
+  --z-nav     : #{v.$z-nav};
+  --z-overlay : #{v.$z-overlay};
+  --z-above   : #{v.$z-above};
+  --z-base    : #{v.$z-base};
+}
+
+
+// ── 라이트 테마 (기본) ────────────────────
+[data-theme='light'] {
+
+  // 배경
+  --bg       : #{v.$color-off-white};
+  --bg-alt   : #{v.$color-off-white-2};
+  --bg-card  : #{v.$color-linen};
+  --bg-card2 : #{v.$color-linen-deep};
+
+  // 텍스트
+  --fg       : #{v.$color-ink};
+  --fg-muted : #{v.$color-ink-muted};
+  --fg-dim   : #{v.$color-ink-dim};
+
+  // 보더
+  --border    : #{v.$border-light};
+  --border-md : #{v.$border-light-md};
+
+  // 그림자
+  --shadow : #{v.$shadow-light};
+
+  // 포인트 컬러
+  --accent        : #{v.$color-accent};
+  --accent-deep   : #{v.$color-accent-deep};
+  --accent-bg     : #{v.$color-accent-bg};
+  --accent-border : #{v.$color-accent-border};
+
+  // 네비게이션
+  --nav-bg : rgba(245, 240, 232, 0.92);
+
+  // Contact 섹션
+  --contact-bg : #{v.$color-contact-dark-bg};
+  --contact-fg : #{v.$color-contact-dark-fg};
+}
+
+
+// ── 다크 테마 ─────────────────────────────
+[data-theme='dark'] {
+
+  // 배경
+  --bg       : #{v.$color-charcoal};
+  --bg-alt   : #{v.$color-charcoal-2};
+  --bg-card  : #{v.$color-earth};
+  --bg-card2 : #{v.$color-earth-deep};
+
+  // 텍스트
+  --fg       : #{v.$color-cream};
+  --fg-muted : #{v.$color-cream-muted};
+  --fg-dim   : #{v.$color-cream-dim};
+
+  // 보더
+  --border    : #{v.$border-dark};
+  --border-md : #{v.$border-dark-md};
+
+  // 그림자
+  --shadow : #{v.$shadow-dark};
+
+  // 포인트 컬러
+  --accent        : #{v.$color-accent};
+  --accent-deep   : #{v.$color-accent-light};
+  --accent-bg     : #{v.$color-accent-bg-dark};
+  --accent-border : #{v.$color-accent-border-dark};
+
+  // 네비게이션
+  --nav-bg : rgba(30, 28, 25, 0.92);
+
+  // Contact 섹션
+  --contact-bg : #{v.$color-accent};
+  --contact-fg : #{v.$color-charcoal};
+}
+
+
+// ── 테마 전환 믹스인 ──────────────────────
+//
+// 사용법:
+//   .my-component {
+//     @include themed;
+//     background: var(--bg);
+//     color: var(--fg);
+//   }
+//
+@mixin themed {
+  background : var(--bg);
+  color      : var(--fg);
+  transition : var(--transition-theme);
+}
+
+// 테마 전환 시 보더만 적용
+@mixin themed-border {
+  border-color : var(--border);
+  transition   : border-color var(--duration-slow) var(--ease);
+}
+
+// 카드 스타일
+@mixin card {
+  background    : var(--bg-card);
+  border        : 1px solid var(--border);
+  transition    : var(--transition-theme);
+}
+
+// 카드 호버
+@mixin card-hover {
+  @include card;
+  &:hover {
+    background : var(--bg-card2);
+  }
+}
+
+// 포인트 컬러 텍스트
+@mixin accent-text {
+  color      : var(--accent-deep);
+  transition : color var(--duration-slow) var(--ease);
+}
+
+// 포인트 배경 + 보더 (태그, 뱃지)
+@mixin accent-badge {
+  background   : var(--accent-bg);
+  border       : 1px solid var(--accent-border);
+  color        : var(--accent-deep);
+  transition   : var(--transition-theme);
+}
+
+// 모노 레이블 (섹션 번호, 메타 정보)
+@mixin mono-label {
+  font-family    : var(--font-mono);
+  font-size      : 0.6rem;
+  letter-spacing : 0.2em;
+  text-transform : uppercase;
+  @include accent-text;
+}
+
+// 디스플레이 헤딩
+@mixin display-heading($size: clamp(28px, 4vw, 48px)) {
+  font-family    : var(--font-display);
+  font-size      : $size;
+  font-weight    : 700;
+  font-style     : italic;
+  line-height    : 1.1;
+  letter-spacing : -0.01em;
+  color          : var(--fg);
+  transition     : color var(--duration-slow) var(--ease);
+}
+
+// 보더 구분선
+@mixin divider {
+  border     : none;
+  border-top : 1px solid var(--border);
+  transition : border-color var(--duration-slow) var(--ease);
+}

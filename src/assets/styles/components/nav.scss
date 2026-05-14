@@ -1,0 +1,26 @@
+@use '../variables' as v;
+
+.topNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+
+
+    &__menu{
+        display:flex;
+        gap: 8px;
+
+        &__item{
+            padding:8px 24px;
+            border: 1px solid var(--fg);
+            border-radius: 50%;
+            font-size: #{v.$text-lg};
+
+            &.active{
+                background-color: var(--fg);
+                color: var(--bg)
+            }
+        }
+    }
+}

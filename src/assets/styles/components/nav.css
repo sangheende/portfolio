@@ -1,0 +1,20 @@
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.topNav__menu {
+  display: flex;
+  gap: 8px;
+}
+.topNav__menu__item {
+  padding: 8px 24px;
+  border: 1px solid var(--fg);
+  border-radius: 50%;
+  font-size: 1.15rem;
+}
+.topNav__menu__item.active {
+  background-color: var(--fg);
+  color: var(--bg);
+}/*# sourceMappingURL=nav.css.map */
