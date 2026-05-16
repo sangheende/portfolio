@@ -193,7 +193,6 @@ body {
 
 #root {
   width: 100%;
-  height: 100vh;
   background: var(--bg);
   color: var(--fg);
   transition: var(--transition-theme);
